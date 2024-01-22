@@ -1,9 +1,9 @@
-import {} from "react";
+import { Parent } from "./00_Export";
 
 const App = () => {
   return (
     <>
-      <div className="">App</div>
+      <Parent />
     </>
   );
 };

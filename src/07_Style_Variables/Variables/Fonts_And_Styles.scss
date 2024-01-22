@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap");
+@import url("https://fonts.googleapis.com/css2? family= Poppins:wght@400;500;600;700 & display=swap");
+//FONT FAMILY
+$font_handwriting: "Fugaz One", cursive;
+$font_main: "Poppins", sans-serif;
+
+//FONT WEIGHTS
+$font_regular: 400;
+$font_md: 500;
+$font_semi: 600;
+$font_bold: 700;
+
+//FONTS SIZES
+
+// Small Font Size
+$font_sm_1: 1.1rem;
+$font_sm_2: 1.2rem;
+$font_sm_3: 1.4rem;
+$font_sm_4: 1.6rem;
+$font_sm_5: 2rem;
+// Medium Font Size
+$font_md_1: 2.1rem;
+$font_md_2: 2.2rem;
+$font_md_3: 2.4rem;
+$font_md_4: 2.6rem;
+$font_md_5: 3rem;
+// Large Font Size
+$font_lg_1: 3.1rem;
+$font_lg_2: 3.2rem;
+$font_lg_3: 3.4rem;
+$font_lg_4: 3.6rem;
+$font_lg_5: 4rem;
+// Large Xl Size
+$font_xl_1: 4.1rem;
+$font_xl_2: 4.2rem;
+$font_xl_3: 4.4rem;
+$font_xl_4: 4.6rem;
+$font_xl_5: 5rem;
+// Large 2Xl Size
+$font_2xl_1: 5.1rem;
+$font_2xl_2: 5.2rem;
+$font_2xl_3: 5.4rem;
+$font_2xl_4: 5.6rem;
+$font_2xl_5: 6rem;
+// Large 3Xl Size
+$font_3xl_1: 6.1rem;
+$font_3xl_2: 6.2rem;
+$font_3xl_3: 6.4rem;
+$font_3xl_4: 6.6rem;
+$font_3xl_5: 7rem;
+// Large 4Xl Size
+$font_4xl_1: 7.1rem;
+$font_4xl_2: 7.2rem;
+$font_4xl_3: 7.4rem;
+$font_4xl_4: 7.6rem;
+$font_4xl_5: 8rem;
+// Large 5Xl Size
+$font_5xl_1: 8.1rem;
+$font_5xl_2: 8.2rem;
+$font_5xl_3: 8.4rem;
+$font_5xl_4: 8.6rem;
+$font_5xl_5: 9rem;
+// Large 6Xl Size
+$font_6xl_1: 9.1rem;
+$font_6xl_2: 9.2rem;
+$font_6xl_3: 9.4rem;
+$font_6xl_4: 9.6rem;
+$font_6xl_5: 10rem;
+// Large 7Xl Size
+$font_7xl_1: 11.1rem;
+$font_7xl_2: 11.2rem;
+$font_7xl_3: 11.4rem;
+$font_7xl_4: 11.6rem;
+$font_7xl_5: 12rem;
+// Colors And Theme.
+
+$white_color: #deedfa;
+$black_color: #28282b;
+
+$dark_bg: linear-gradient(
+  to right top,
+  #28282b,
+  #25282d,
+  #21282f,
+  #1b282f,
+  #14292e,
+  #12282c,
+  #102729,
+  #0e2627,
+  #102424,
+  #112122,
+  #121f1f,
+  #131d1d
+);
+$light_bg: linear-gradient(
+  to right top,
+  #e9e9e9,
+  #e6e6e6,
+  #e2e2e2,
+  #dfdfdf,
+  #dcdcdc,
+  #dcdcdc,
+  #dcdcdc,
+  #dcdcdc,
+  #dfdfdf,
+  #e2e2e2,
+  #e6e6e6,
+  #e9e9e9
+);
+
+// Utility Classes
+
+*::selection {
+  background: blue;
+  color: white;
+}
+
+.black_color {
+  color: $black_color;
+  transition: color 0.3s ease-in-out;
+}
+.white_color {
+  color: $white_color;
+  transition: color 0.3s ease-in-out;
+}
+.bg_light {
+  background: $light_bg;
+}
+.bg_dark {
+  background: $dark_bg;
+}
+a {
+  text-decoration: none;
+}
+
+//Global size
+html {
+  font-size: 10px;
+}
+* {
+  font-size: $font_sm_5;
+  font-family: $font_main;
+}
+.visible {
+  display: inline;
+}
+.invisible {
+  display: none;
+}
