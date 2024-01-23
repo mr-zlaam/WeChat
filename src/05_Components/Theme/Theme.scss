@@ -1,0 +1,20 @@
+@import "../../07_Style_Variables/Variables/Fonts_And_Styles.scss";
+
+.select_container {
+  padding: 1rem 1.8rem;
+  outline: none;
+  cursor: pointer;
+  font-weight: $font_semi;
+  border-radius: 10px;
+  & option {
+    color: black;
+    padding: 1rem 1.8rem;
+    font-weight: $font_semi;
+    background: #28282b;
+    color: white;
+    &:checked {
+      background-color: #f5dede;
+      color: darkslategray;
+    }
+  }
+}

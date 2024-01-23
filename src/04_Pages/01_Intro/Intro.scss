@@ -1,1 +1,20 @@
 @import "../../07_Style_Variables/Variables/Fonts_And_Styles.scss";
+.introMain {
+  height: 100%;
+  display: flex;
+  background: gray;
+  justify-content: center;
+  align-items: center;
+  animation: intro 5s linear 0s 1 forwards;
+}
+@keyframes intro {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

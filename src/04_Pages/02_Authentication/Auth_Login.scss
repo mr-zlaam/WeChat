@@ -1,0 +1,58 @@
+@import "../../07_Style_Variables/Variables/Fonts_And_Styles.scss";
+
+.auth_container {
+  height: 100%;
+  padding: 1rem;
+  width: 100%;
+  .form_container {
+    max-width: 500px;
+    height: fit-content;
+    margin: auto;
+    padding: 5rem 0;
+    position: relative;
+    top: 10rem;
+    background: #818181;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 46px -7px #000000bf;
+    -webkit-box-shadow: 0px 0px 46px -7px #000000bf;
+    -moz-box-shadow: 0px 0px 46px -7px #000000bf;
+    form {
+      padding: 0 2rem;
+      input {
+        padding: 0.7rem 1.5rem;
+        background: none;
+        outline: none;
+        width: 100%;
+        margin: 1rem;
+        &::placeholder {
+          color: #00000067;
+          font-weight: $font_semi;
+        }
+      }
+      button {
+        display: block;
+        width: 80%;
+        margin: 1rem auto;
+      }
+    }
+    h4 {
+      color: $black_color;
+    }
+    .google {
+      display: flex;
+      align-items: center;
+      & .google_icon {
+        margin: 0.2rem 1rem;
+      }
+    }
+  }
+}
+@media screen and (max-width: 350px) {
+  button {
+    font-size: $font_sm_4;
+  }
+}

@@ -111,17 +111,19 @@ $light_bg: linear-gradient(
 // Utility Classes
 
 *::selection {
-  background: blue;
+  background: #28828b;
   color: white;
 }
 
 .black_color {
   color: $black_color;
-  transition: color 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  transition-property: color, background;
 }
 .white_color {
   color: $white_color;
-  transition: color 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  transition-property: color, background;
 }
 .bg_light {
   background: $light_bg;
@@ -146,4 +148,48 @@ html {
 }
 .invisible {
   display: none;
+}
+
+// utility calsses
+
+//?  Button Class
+@mixin btn {
+  padding: 1rem 2rem;
+  font-weight: $font_semi;
+  border-radius: 5px;
+  border: none;
+  margin: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  user-select: none;
+
+  &:hover {
+    opacity: 0.9;
+    border-radius: 12px;
+  }
+}
+.btn_light {
+  background: $light_bg;
+  @include btn;
+  color: $black_color;
+}
+.btn_dark {
+  background: $dark_bg;
+  color: $white_color;
+  @include btn;
+}
+
+.btn_disable {
+  @include btn;
+  cursor: default;
+  background-color: #6e6e6e;
+  color: $white_color;
+}
+.border_light {
+  border: none;
+  border-bottom: 2px solid $white_color;
+}
+.border_dark {
+  border: none;
+  border-bottom: 2px solid $black_color;
 }
