@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Auth_Login, Auth_Register, Intro } from "../../00_Export";
+import { Auth_Register, Home, Intro, Protected } from "../../00_Export";
 
 const Routers = () => {
   const [isIntro, setIsIntro] = useState(true);
@@ -16,6 +16,7 @@ const Routers = () => {
     <>
       <Routes>
         <Route path="/" element={<Auth_Register />} />
+        <Route path="/home" element={<Protected Component={Home} />} />
       </Routes>
     </>
   );
