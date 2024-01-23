@@ -3,11 +3,8 @@ import { ChatContext } from "./ChatContext";
 
 export const ChatContextProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(true);
-  const [userDetails, setUserDetails] = useState(null);
   return (
-    <ChatContext.Provider
-      value={{ isDarkMode, setIsDarkMode, userDetails, setUserDetails }}
-    >
+    <ChatContext.Provider value={{ isDarkMode, setIsDarkMode }}>
       {children}
     </ChatContext.Provider>
   );

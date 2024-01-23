@@ -7,7 +7,9 @@ const Protected = ({ Component }) => {
   useEffect(() => {
     const auth_token = cookie.get("auth-token");
     const email_signin = cookie.get("emailForSignIn");
-    if (!auth_token && !email_signin) return navigate("/");
+    const user_details = JSON.parse(localStorage.getItem("user_details"));
+    if (!user_details) return navigate("/login");
+    if (!auth_token && !email_signin) return navigate("/login");
   }, []);
   return (
     <>

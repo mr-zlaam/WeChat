@@ -14,7 +14,6 @@ import {
   signInWithEmailLink,
 } from "firebase/auth";
 import Cookies from "universal-cookie";
-import { ChatContext } from "../../00_Export";
 
 const Auth_Register = () => {
   const [input, setInput] = useState({
@@ -22,7 +21,6 @@ const Auth_Register = () => {
     lastName: "",
     email: "",
   });
-  const { setUserDetails } = useContext(ChatContext);
   const navigate = useNavigate();
   const cookie = new Cookies();
   const notification = useNotification(toast);
@@ -49,7 +47,7 @@ const Auth_Register = () => {
       if (!email.includes("@")) return errorMessage("Email must be valid!");
 
       await sendSignInLinkToEmail(authUser, email, {
-        url: "http://localhost:5173/", // URL to handle the email link
+        url: "http://localhost:5173/",
         handleCodeInApp: true,
       });
 
@@ -63,7 +61,6 @@ const Auth_Register = () => {
     }
   };
 
-  // Check if the current page URL is a sign-in with email link
   const checkSignInWithEmailLink = () => {
     const auth = getAuth();
     if (isSignInWithEmailLink(auth, window.location.href)) {
@@ -76,6 +73,7 @@ const Auth_Register = () => {
       signInWithEmailLink(auth, email, window.location.href)
         .then((result) => {
           const user = result.user;
+          setUserDetails(user);
           successMessage("You are signed in Successfully");
         })
         .catch((error) => {
@@ -95,9 +93,13 @@ const Auth_Register = () => {
     try {
       const result = await signInWithPopup(authUser, googleProvider);
       cookie.set("auth-token", result.user.refreshToken);
-      setUserDetails(result);
+      const { displayName, uid, photoURL, email } = result.user;
+      const user_details = { displayName, uid, photoURL, email };
+      const str_details = JSON.stringify(user_details);
+      localStorage.setItem("user_details", str_details);
+      console.log(str_details);
       setTimeout(() => {
-        navigate("/home");
+        navigate("/login");
       }, 2500);
 
       successMessage("Signed in successfully");
@@ -135,7 +137,7 @@ const Auth_Register = () => {
               className="border_dark"
             />
             <button onClick={handleRegister} className={"btn_dark"}>
-              login
+              Verify
             </button>
           </form>
           <h4>OR</h4>
@@ -147,9 +149,6 @@ const Auth_Register = () => {
             <FaFacebook size={25} color="#dedede" className="google_icon" />
             Continue With Facebook
           </button>
-          <span>
-            Already have an account? &nbsp; <Link>Login</Link>
-          </span>
         </div>
       </div>
     </>

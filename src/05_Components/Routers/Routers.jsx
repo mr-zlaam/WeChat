@@ -15,8 +15,8 @@ const Routers = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Auth_Register />} />
-        <Route path="/home" element={<Protected Component={Home} />} />
+        <Route path="/login" element={<Auth_Register />} />
+        <Route path="/" element={<Protected Component={Home} />} />
       </Routes>
     </>
   );
