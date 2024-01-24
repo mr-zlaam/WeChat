@@ -1,0 +1,18 @@
+@import "../../07_Style_Variables/Variables/Fonts_And_Styles.scss";
+
+.header_container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+  .logo {
+    img {
+      width: 70px;
+    }
+  }
+  .navigation_bar {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+}

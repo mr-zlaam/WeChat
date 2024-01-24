@@ -1,0 +1,73 @@
+@import "../../07_Style_Variables/Variables/Fonts_And_Styles.scss";
+
+.account_icon_main {
+  cursor: pointer;
+  .account_icon {
+    font-size: 3rem;
+  }
+  .account_tooltip_modal {
+    position: absolute;
+    right: 2rem;
+    top: 3rem;
+    transform: scale(0);
+    font-weight: bold;
+    box-shadow: 2px 2px 4px #888888;
+  }
+  .account_modal_container {
+    padding: 4rem 1rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    button {
+      display: flex;
+      align-items: center;
+      font-size: $font_sm_2;
+      font-weight: 500;
+      span {
+        margin: 0 1rem;
+      }
+    }
+    cursor: default;
+    .account_mdal_btns {
+      display: flex;
+      align-items: center;
+    }
+    .img_logo_account > img {
+      border-radius: 50%;
+    }
+    .img_logo_account > * {
+      font-size: 8rem;
+      cursor: pointer;
+    }
+    .greet_title {
+      h1 {
+        font-size: $font_md-4;
+        text-align: center;
+        margin: 1rem;
+      }
+      p {
+        font-size: $font_sm_4;
+        text-align: center;
+        margin: 2rem 0;
+      }
+    }
+  }
+  &:hover {
+    .account_tooltip_modal {
+      transition: all 0.3s ease;
+
+      transform: scale(1);
+    }
+  }
+}
+.acc_modal_visible {
+  transform: scale(1);
+  transition: tranform 0.3s ease;
+}
+.acc_modal_invisible {
+  transition: tranform 0.3s ease;
+
+  transform: scale(0);
+}

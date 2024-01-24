@@ -10,8 +10,13 @@ import Auth_Register from "../04_Pages/02_Authentication/01_Auth_Register";
 import { useNotification } from "../08_Hooks/useNotification";
 import Home from "../04_Pages/03_Home/Home";
 import Protected from "../05_Components/ProtectedRoutes/Protected";
+import Navbar from "../05_Components/01_Navbar/Navbar";
+import Create_Room from "../09_Subcomponents/01_Create_Room/Create_Room";
+import AccountIcon from "../09_Subcomponents/02_Account_Icon/Account_Icon";
+import { useData } from "../08_Hooks/useData";
 
 export {
+  useData,
   ChatContext,
   ChatContextProvider,
   Parent,
@@ -24,4 +29,7 @@ export {
   useNotification,
   Home,
   Protected,
+  Navbar,
+  Create_Room,
+  AccountIcon,
 };

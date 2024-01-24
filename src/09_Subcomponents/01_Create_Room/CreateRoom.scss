@@ -1,0 +1,26 @@
+@import "../../07_Style_Variables/Variables/Fonts_And_Styles.scss";
+
+.create_room {
+  margin: 0 1rem;
+  position: relative;
+  cursor: pointer;
+  .create_room_icon {
+    font-size: 3rem;
+  }
+  .tooltip {
+    position: absolute;
+    top: -2rem;
+    left: -3rem;
+    transform: scale(0);
+    width: 90px;
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+    user-select: none;
+    font-weight: bold;
+  }
+  &:hover {
+    .tooltip {
+      transform: scale(1);
+    }
+  }
+}

@@ -66,14 +66,13 @@ const Auth_Register = () => {
     if (isSignInWithEmailLink(auth, window.location.href)) {
       let email = cookie.get("emailForSignIn");
       if (!email) {
-        navigate("/");
+        navigate("/login");
       }
-      if (email) return navigate("/Home");
+      if (email) return navigate("/");
 
       signInWithEmailLink(auth, email, window.location.href)
         .then((result) => {
           const user = result.user;
-          setUserDetails(user);
           successMessage("You are signed in Successfully");
         })
         .catch((error) => {
@@ -84,7 +83,6 @@ const Auth_Register = () => {
         });
     }
   };
-
   useEffect(() => {
     checkSignInWithEmailLink();
   }, []);
@@ -97,9 +95,8 @@ const Auth_Register = () => {
       const user_details = { displayName, uid, photoURL, email };
       const str_details = JSON.stringify(user_details);
       localStorage.setItem("user_details", str_details);
-      console.log(str_details);
       setTimeout(() => {
-        navigate("/login");
+        navigate("/");
       }, 2500);
 
       successMessage("Signed in successfully");
