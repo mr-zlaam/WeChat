@@ -1,5 +1,5 @@
 import {} from "react";
-import { AccountIcon, Create_Room } from "../../00_Export";
+import { AccountIcon, Create_Room, Setting } from "../../00_Export";
 import "./Navbar.scss";
 const Navbar = () => {
   return (
@@ -11,6 +11,9 @@ const Navbar = () => {
         <div className="navigation_bar">
           <div className="create_room">
             <Create_Room />
+          </div>
+          <div className="setting">
+            <Setting />
           </div>
           <div className="account">
             <AccountIcon />

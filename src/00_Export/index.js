@@ -14,8 +14,9 @@ import Navbar from "../05_Components/01_Navbar/Navbar";
 import Create_Room from "../09_Subcomponents/01_Create_Room/Create_Room";
 import AccountIcon from "../09_Subcomponents/02_Account_Icon/Account_Icon";
 import { useData } from "../08_Hooks/useData";
-
+import Setting from "../09_Subcomponents/03_Setting/Setting";
 export {
+  Setting,
   useData,
   ChatContext,
   ChatContextProvider,

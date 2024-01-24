@@ -1,24 +1,25 @@
 @import "../../07_Style_Variables/Variables/Fonts_And_Styles.scss";
 
-.create_room {
+.setting {
+  margin: 0 1rem;
   position: relative;
   cursor: pointer;
-  .create_room_icon {
+  .create_setting_icon {
     font-size: 3rem;
   }
-  .tooltip {
+  .tooltip_setting {
     position: absolute;
-    top: -2rem;
-    left: -3rem;
+    top: 3.5rem;
+    text-align: center;
+    left: -1rem;
     transform: scale(0);
-    width: 90px;
     font-size: 1.3rem;
     transition: transform 0.3s ease;
     user-select: none;
     font-weight: bold;
   }
   &:hover {
-    .tooltip {
+    .tooltip_setting {
       transform: scale(1);
     }
   }

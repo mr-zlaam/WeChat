@@ -1,5 +1,10 @@
 @import "../../07_Style_Variables/Variables/Fonts_And_Styles.scss";
 
+@mixin mobile {
+  @media screen and (max-width: 404px) {
+    flex-direction: column;
+  }
+}
 .account_icon_main {
   cursor: pointer;
   .account_icon {
@@ -20,6 +25,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+
     button {
       display: flex;
       align-items: center;
@@ -33,9 +39,12 @@
     .account_mdal_btns {
       display: flex;
       align-items: center;
+      @include mobile();
     }
     .img_logo_account > img {
       border-radius: 50%;
+      user-select: none;
+      -webkit-user-drag: none;
     }
     .img_logo_account > * {
       font-size: 8rem;
