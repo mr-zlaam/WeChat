@@ -40,7 +40,7 @@ const AccountIcon = () => {
 
   const customMail = data.email_signin;
 
-  if (data.user_details === null) return navigate("/login");
+  if (data.user_details === null) return;
 
   const { email, displayName, photoURL } = data.user_details;
 
