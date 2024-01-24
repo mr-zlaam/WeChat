@@ -8,6 +8,9 @@
   .logo {
     img {
       width: 70px;
+      user-select: none;
+      -webkit-user-drag: none;
+      cursor: pointer;
     }
   }
   .navigation_bar {
