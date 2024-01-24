@@ -1,7 +1,9 @@
+import { Loader } from "../../00_Export";
+
 const Home = () => {
   return (
     <>
-      <h1>hello world</h1>
+      <h1></h1>
     </>
   );
 };
