@@ -7,7 +7,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNotification } from "../../08_Hooks/useNotification";
 import { authUser, googleProvider } from "../../02_Firebase/firebase.config";
 import { sendSignInLinkToEmail, signInWithPopup } from "firebase/auth";
-
 import {
   getAuth,
   isSignInWithEmailLink,

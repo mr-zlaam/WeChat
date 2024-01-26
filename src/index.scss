@@ -9,3 +9,45 @@
     background: #28282b;
   }
 }
+@media screen and (max-width: 768px) {
+  * {
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+}
+
+/* Firefox */
+* {
+  scrollbar-width: none;
+  scrollbar-color: transparent transparent;
+}
+
+/* Webkit-based browsers (Chrome, Safari, newer versions of Edge) */
+*::-webkit-scrollbar {
+  width: 0px; /* Adjust the width as needed */
+}
+
+*::-webkit-scrollbar-track {
+  background: none;
+  width: 1px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #28282b;
+  border-radius: 30px;
+}
+
+/* Microsoft Edge and Internet Explorer */
+*::-ms-scrollbar-thumb {
+  width: 0px; /* Adjust the width as needed */
+}
+
+*::-ms-scrollbar-track {
+  background: transparent;
+  width: 0;
+}
+@media screen and (max-width: 768px) {
+  *::-webkit-scrollbar {
+    width: 0.5px; /* Adjust the width as needed */
+  }
+}

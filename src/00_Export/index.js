@@ -16,7 +16,12 @@ import AccountIcon from "../09_Subcomponents/02_Account_Icon/Account_Icon";
 import { useData } from "../08_Hooks/useData";
 import Setting from "../09_Subcomponents/03_Setting/Setting";
 import Loader from "../09_Subcomponents/04_Loaders/Loader";
+import Room from "../04_Pages/04_Navigate/Room";
+import Chat from "../04_Pages/05_Chat/Chat";
+import MessageTimestamp from "../09_Subcomponents/05_messagesTimeStamp/MessageTimeStamp";
 export {
+  MessageTimestamp,
+  Chat,
   Loader,
   Setting,
   useData,
@@ -35,4 +40,5 @@ export {
   Navbar,
   Create_Room,
   AccountIcon,
+  Room,
 };

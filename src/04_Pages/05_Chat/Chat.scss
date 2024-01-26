@@ -1,0 +1,98 @@
+@import "../../07_Style_Variables/Variables/Fonts_And_Styles.scss";
+@mixin username_you {
+  position: absolute;
+  font-size: $font_sm_1;
+  top: 0;
+}
+.chat_container {
+  height: calc(100vh - 120px);
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  h1 {
+    text-align: center;
+    font-size: $font_md_5;
+  }
+  .messages_container {
+    overflow: auto;
+    .messages {
+      display: flex;
+      margin: 1rem;
+      position: relative;
+      padding: 2rem 0;
+      .username {
+        @include username_you();
+        left: 2rem;
+      }
+      .you {
+        @include username_you();
+        right: 2rem;
+      }
+      .date {
+        position: absolute;
+        bottom: 0rem;
+        font-size: $font_sm_1;
+      }
+    }
+    .sent {
+      text-align: end;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      .mymessages {
+        background-color: #434348;
+        padding: 1rem 4rem;
+        border-radius: 10px 0px 10px 10px;
+      }
+    }
+    .received {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      .mymessages {
+        background-color: #434348;
+        padding: 1rem 4rem;
+        border-radius: 0px 10px 10px 10px;
+      }
+    }
+  }
+  form {
+    .input_div {
+      display: flex;
+      align-items: center;
+      height: 50px;
+      padding: 1rem;
+
+      input {
+        height: 100%;
+        width: 100%;
+        padding: 1rem 5rem;
+        outline: none;
+        border: none;
+        background: none;
+        font-size: $font_sm_5;
+      }
+      .send_btn {
+        background: none;
+        border: none;
+        span {
+          height: 45px;
+          width: 45px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: 0.3s ease;
+          transition-property: color, background;
+          will-change: background, color;
+          &:hover {
+            color: #fff;
+            background: #0000009e;
+          }
+        }
+      }
+    }
+  }
+}
