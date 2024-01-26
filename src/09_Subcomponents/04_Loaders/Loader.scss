@@ -3,11 +3,12 @@
   width: 3.25em;
   transform-origin: center;
   animation: rotate4 5s linear infinite;
+  margin: auto;
 }
 
 circle {
   fill: none;
-  stroke: hsl(214, 97%, 59%);
+  stroke: #3189fc;
   stroke-width: 2;
   stroke-dasharray: 1, 200;
   stroke-dashoffset: 0;

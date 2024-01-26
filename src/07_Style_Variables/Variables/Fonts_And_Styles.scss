@@ -185,11 +185,11 @@ html {
   background-color: #6e6e6e;
   color: $white_color;
 }
-.border_light {
-  border: none;
-  border-bottom: 2px solid $white_color;
+.dark_input {
+  background: #282626;
+  color: $white_color;
 }
-.border_dark {
-  border: none;
-  border-bottom: 2px solid $black_color;
+.light_input {
+  background: #d0c6c6;
+  color: $black_color;
 }
