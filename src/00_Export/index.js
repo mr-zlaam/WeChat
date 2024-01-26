@@ -22,7 +22,11 @@ import MessageTimestamp from "../09_Subcomponents/05_messagesTimeStamp/MessageTi
 import Checkbox from "../09_Subcomponents/07_CheckBox/CheckBox";
 import useLoading from "../08_Hooks/ueLoading";
 import { useCompTheme } from "../08_Hooks/useCompTheme";
+import ChatForm from "../09_Subcomponents/08_ChatForm/ChatForm";
+import ChatMessages from "../09_Subcomponents/09_ChatMessages/ChatMessages";
 export {
+  ChatMessages,
+  ChatForm,
   useCompTheme,
   useLoading,
   Checkbox,

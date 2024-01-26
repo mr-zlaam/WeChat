@@ -114,7 +114,6 @@ const Auth_Register = () => {
               name="firstName"
               placeholder=" First Name"
               type="text"
-              className="border_dark"
             />
             <input
               value={input.lastName}
@@ -122,7 +121,6 @@ const Auth_Register = () => {
               name="lastName"
               placeholder=" Last Name"
               type="text"
-              className="border_dark"
             />
             <input
               value={input.email}
@@ -130,7 +128,6 @@ const Auth_Register = () => {
               placeholder=" Email "
               name="email"
               type="email"
-              className="border_dark"
             />
             <button onClick={handleRegister} className={"btn_dark"}>
               Verify

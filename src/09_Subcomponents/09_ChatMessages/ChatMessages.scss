@@ -1,0 +1,66 @@
+@import "../../07_Style_Variables/Variables/Fonts_And_Styles.scss";
+@mixin username_you {
+  position: absolute;
+  font-size: $font_sm_1;
+  top: 0;
+}
+@mixin mymessages {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 3rem;
+  position: relative;
+
+  max-width: 70%;
+}
+
+@mixin send_recive {
+  display: flex;
+  align-items: center;
+}
+
+.messages_container {
+  overflow: auto;
+  .messages {
+    display: flex;
+    margin: 1rem;
+    position: relative;
+    padding: 2rem 0;
+    .username {
+      @include username_you();
+      left: 2rem;
+    }
+    .you {
+      @include username_you();
+      right: 2rem;
+    }
+    .date {
+      position: absolute;
+      bottom: 0rem;
+      font-size: $font_sm_1;
+    }
+  }
+  .sent {
+    @include send_recive();
+
+    justify-content: flex-end;
+    .mymessages {
+      border-radius: 10px 0px 10px 10px;
+      @include mymessages();
+    }
+  }
+  .received {
+    @include send_recive();
+
+    justify-content: flex-start;
+    .mymessages {
+      border-radius: 0 10px 10px 10px;
+      @include mymessages();
+      .tick {
+        position: absolute;
+        bottom: 0;
+        right: 0.7rem;
+      }
+    }
+  }
+}

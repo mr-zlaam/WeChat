@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import "./Chat.scss";
 import {
   Timestamp,
@@ -12,23 +12,21 @@ import {
 import { authUser, db } from "../../02_Firebase/firebase.config";
 import {
   ChatContext,
-  Checkbox,
+  ChatForm,
+  ChatMessages,
   Loader,
-  MessageTimestamp,
   useCompTheme,
   useLoading,
-  useThemeClass,
 } from "../../00_Export";
-import { IoMdSend } from "react-icons/io";
 
 const Chat = ({ room }) => {
   const currentUser = authUser.currentUser?.displayName;
   const { isLoading, startLoading, stopLoading } = useLoading();
+  const scrollableDivRef = useRef(null);
 
   const [newMessage, setNewMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const { isDarkMode } = useContext(ChatContext);
-  const theme_class = useThemeClass(!isDarkMode);
   const comp_Theme = useCompTheme(isDarkMode);
   //? Reference to add doc
   const messageRef = collection(db, "messages");
@@ -65,11 +63,20 @@ const Chat = ({ room }) => {
       setNewMessage("");
       stopLoading();
     } catch (error) {
-      console.log(error);
+      console.log("Our Servers are facing heavy traffic please wait..", error);
     }
   };
+  useEffect(() => {
+    if (scrollableDivRef.current) {
+      scrollableDivRef.current.scrollTop =
+        scrollableDivRef.current.scrollHeight;
+    }
+  }, [messages]);
+  // Time
   const timeNow = new Date();
-  const timeString = timeNow.toLocaleTimeString();
+  const options = { hour12: true, hour: "numeric", minute: "2-digit" };
+  const timeString = timeNow.toLocaleTimeString("default", options);
+
   return (
     <>
       <div className="chat_container">
@@ -77,64 +84,21 @@ const Chat = ({ room }) => {
         {isLoading ? (
           <Loader />
         ) : (
-          <div className="messages_container">
-            {messages.map((allmessages) => {
-              return (
-                <div
-                  className={`messages ${
-                    allmessages.user === currentUser ? "sent" : "received"
-                  }`}
-                  key={allmessages.id}
-                >
-                  {allmessages.user === currentUser ? (
-                    <>
-                      <span className="you">You</span>
-                      <span className="date">
-                        &nbsp;
-                        <MessageTimestamp timestamp={Timestamp} />
-                        &nbsp;{timeString}
-                      </span>
-                    </>
-                  ) : (
-                    <>
-                      <span className="username">{allmessages.user}</span>
-                      <span className="date">
-                        &nbsp;
-                        <MessageTimestamp timestamp={Timestamp} />
-                        &nbsp;{timeString}
-                      </span>
-                    </>
-                  )}
-                  <span className={`mymessages ${comp_Theme}`}>
-                    {allmessages.text}
-                    <span className="tick">
-                      {" "}
-                      {allmessages.user === currentUser && <Checkbox />}
-                    </span>
-                  </span>
-                </div>
-              );
-            })}
-          </div>
+          <ChatMessages
+            scrollableDivRef={scrollableDivRef}
+            messages={messages}
+            currentUser={currentUser}
+            Timestamp={Timestamp}
+            timeString={timeString}
+            comp_Theme={comp_Theme}
+          />
         )}
-        <form action="" onSubmit={handleSubmit}>
-          <div className={`input_div ${comp_Theme}`}>
-            <input
-              type="text"
-              value={newMessage}
-              autoFocus
-              placeholder="Message"
-              onChange={(event) => {
-                setNewMessage(event.target.value);
-              }}
-            />
-            <button className={`send_btn`} type="submit">
-              <span>
-                <IoMdSend />
-              </span>
-            </button>
-          </div>
-        </form>
+        <ChatForm
+          handleSubmit={handleSubmit}
+          setNewMessage={setNewMessage}
+          newMessage={newMessage}
+          comp_Theme={comp_Theme}
+        />
       </div>
     </>
   );
