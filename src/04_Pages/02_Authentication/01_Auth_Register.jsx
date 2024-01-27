@@ -46,7 +46,7 @@ const Auth_Register = () => {
       if (!email.includes("@")) return errorMessage("Email must be valid!");
 
       await sendSignInLinkToEmail(authUser, email, {
-        url: "http://localhost:5173/",
+        url: "https://wechat-io.netlify.app/",
         handleCodeInApp: true,
       });
 
