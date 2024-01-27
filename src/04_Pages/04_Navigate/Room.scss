@@ -1,12 +1,16 @@
 @import "../../07_Style_Variables/Variables/Fonts_And_Styles.scss";
-
+@mixin mobile {
+  @media screen and (max-width: 420px) {
+    margin: 0 2rem;
+  }
+}
 .room_card {
   height: 40vh;
   max-width: 400px;
   margin: auto;
   box-shadow: 0px 1px 14px #888888;
   border-radius: 20px;
-
+  @include mobile();
   h1 {
     text-align: center;
     font-size: $font_md_5;
@@ -25,6 +29,7 @@
       border: none;
       font-weight: 500;
       margin: 2rem 0;
+      max-width: 70%;
     }
   }
 }

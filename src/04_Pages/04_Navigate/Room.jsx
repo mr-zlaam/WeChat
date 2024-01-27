@@ -21,9 +21,10 @@ const Room = () => {
     setRoom(roomInputRef.current.value);
     navigate(`/chat`);
   };
+
   return (
     <>
-      {<SettingModal />}
+      <SettingModal />
       <div className="room_card">
         <div className="room_input_controller">
           <label htmlFor="myroom">Enter the Room Name</label>
