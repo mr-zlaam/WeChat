@@ -3,6 +3,7 @@ import { RiAccountPinCircleFill } from "react-icons/ri";
 import "./AccountIcon.scss";
 
 import {
+  AccountModal,
   ChatContext,
   useBtn_Class,
   useData,
@@ -11,8 +12,6 @@ import {
 
 import { useContext } from "react";
 
-import { MdAccountCircle } from "react-icons/md";
-
 import { useNavigate } from "react-router-dom";
 
 import Cookies from "universal-cookie";
@@ -20,10 +19,6 @@ import Cookies from "universal-cookie";
 import { signOut } from "firebase/auth";
 
 import { authUser } from "../../02_Firebase/firebase.config";
-
-import { IoMdAdd } from "react-icons/io";
-
-import { FiLogOut } from "react-icons/fi";
 
 const AccountIcon = () => {
   const navigate = useNavigate();
@@ -62,39 +57,16 @@ const AccountIcon = () => {
     <>
       <div className="account_icon_main">
         <RiAccountPinCircleFill className="account_icon" />
-        <div
-          className={`account_tooltip_modal account_modal_container ${modal_bg}`}
-        >
-          <div className="img_logo_account">
-            {photoURL ? (
-              <img src={photoURL} alt={`${displayName} img`} />
-            ) : (
-              <MdAccountCircle />
-            )}
-          </div>
-
-          <div className="greet_title">
-            <h1>Hello {displayName ? displayName : <span>User</span>}!</h1>
-            <p>{customMail ? customMail : email}</p>
-          </div>
-
-          <div className="account_mdal_btns">
-            <button
-              className={`${modal_btn_class} account_modal_btn`}
-              onClick={handleLogout}
-            >
-              <span>Logout </span>
-              <FiLogOut />
-            </button>
-            <button
-              className={`${modal_btn_class} account_modal_btn`}
-              onClick={handleAddAccount}
-            >
-              <span>Add Account</span>
-              <IoMdAdd />
-            </button>
-          </div>
-        </div>
+        <AccountModal
+          photoURL={photoURL}
+          displayName={displayName}
+          customMail={customMail}
+          email={email}
+          handleLogout={handleLogout}
+          handleAddAccount={handleAddAccount}
+          modal_bg={modal_bg}
+          modal_btn_class={modal_btn_class}
+        />
       </div>
     </>
   );
