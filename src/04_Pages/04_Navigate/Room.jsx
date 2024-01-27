@@ -1,6 +1,11 @@
 import { useContext, useRef } from "react";
 import "./Room.scss";
-import { ChatContext, useBtn_Class, useNotification } from "../../00_Export";
+import {
+  ChatContext,
+  SettingModal,
+  useBtn_Class,
+  useNotification,
+} from "../../00_Export";
 import { useNavigate } from "react-router-dom";
 
 const Room = () => {
@@ -18,6 +23,7 @@ const Room = () => {
   };
   return (
     <>
+      {<SettingModal />}
       <div className="room_card">
         <div className="room_input_controller">
           <label htmlFor="myroom">Enter the Room Name</label>

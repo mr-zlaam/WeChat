@@ -24,7 +24,9 @@ import { useCompTheme } from "../08_Hooks/useCompTheme";
 import ChatForm from "../09_Subcomponents/08_ChatForm/ChatForm";
 import ChatMessages from "../09_Subcomponents/09_ChatMessages/ChatMessages";
 import AccountModal from "../06_Modals/Account_Modal/Account_Modal";
+import SettingModal from "../06_Modals/Setting/SettingModal";
 export {
+  SettingModal,
   AccountModal,
   ChatMessages,
   ChatForm,

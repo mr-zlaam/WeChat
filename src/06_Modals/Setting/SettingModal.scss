@@ -1,0 +1,34 @@
+@import "../../07_Style_Variables/Variables/Fonts_And_Styles.scss";
+
+@mixin setting_modal {
+  position: absolute;
+  position: absolute;
+  right: 3rem;
+  top: 2rem;
+  font-weight: bold;
+  box-shadow: 2px 2px 4px #888888;
+  height: 100px;
+  transition: transform 0.3s linear;
+  overflow: hidden;
+  border-radius: 20px;
+  & > div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    padding: 2rem;
+    width: 100%;
+    & > * {
+      margin: 1rem 1.5rem;
+    }
+  }
+}
+
+.setting_modal_invisible {
+  @include setting_modal();
+  transform: scale(0);
+}
+.setting_modal_visible {
+  @include setting_modal();
+  transform: scale(1);
+}
