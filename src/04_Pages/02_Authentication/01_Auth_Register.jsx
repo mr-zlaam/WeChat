@@ -1,9 +1,8 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Auth_Register.scss";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
-import { useState, useEffect, useContext } from "react";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useState, useEffect } from "react";
+
 import { useNotification } from "../../08_Hooks/useNotification";
 import { authUser, googleProvider } from "../../02_Firebase/firebase.config";
 import { sendSignInLinkToEmail, signInWithPopup } from "firebase/auth";
@@ -22,8 +21,9 @@ const Auth_Register = () => {
   });
   const navigate = useNavigate();
   const cookie = new Cookies();
-  const notification = useNotification(toast);
+  const notification = useNotification();
   const { successMessage, errorMessage } = notification;
+
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setInput((prevInput) => ({
@@ -72,7 +72,7 @@ const Auth_Register = () => {
       signInWithEmailLink(auth, email, window.location.href)
         .then((result) => {
           const user = result.user;
-          successMessage("You are signed in Successfully");
+          successMessage(`${user.displayName}  signed in Successfully`);
         })
         .catch((error) => {
           console.error(error);
@@ -100,9 +100,10 @@ const Auth_Register = () => {
 
       successMessage("Signed in successfully");
     } catch (error) {
-      errorMessage("unknown issue during the login");
+      errorMessage("something went wrong");
     }
   };
+
   return (
     <>
       <div className="auth_container">

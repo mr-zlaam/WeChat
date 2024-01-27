@@ -1,4 +1,6 @@
-export const useNotification = (toast) => {
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+export const useNotification = () => {
   const errorMessage = (message) =>
     toast.error(message, {
       draggable: true,

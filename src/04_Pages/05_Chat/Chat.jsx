@@ -17,17 +17,19 @@ import {
   Loader,
   useCompTheme,
   useLoading,
+  useNotification,
 } from "../../00_Export";
 
-const Chat = ({ room }) => {
+const Chat = () => {
   const currentUser = authUser.currentUser?.displayName;
   const { isLoading, startLoading, stopLoading } = useLoading();
   const scrollableDivRef = useRef(null);
 
   const [newMessage, setNewMessage] = useState("");
   const [messages, setMessages] = useState([]);
-  const { isDarkMode } = useContext(ChatContext);
+  const { isDarkMode, room } = useContext(ChatContext);
   const comp_Theme = useCompTheme(isDarkMode);
+  const errorMessage = useNotification();
   //? Reference to add doc
   const messageRef = collection(db, "messages");
 
@@ -51,7 +53,8 @@ const Chat = ({ room }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!newMessage) return alert("Empty message can't be sent ");
+    if (!newMessage)
+      return errorMessage.errorMessage("Wanna Send Empty message huh!");
     startLoading();
     try {
       await addDoc(messageRef, {
@@ -63,7 +66,9 @@ const Chat = ({ room }) => {
       setNewMessage("");
       stopLoading();
     } catch (error) {
-      console.log("Our Servers are facing heavy traffic please wait..", error);
+      errorMessage.errorMessage(
+        "Our Servers are facing heavy traffic please wait.."
+      );
     }
   };
   useEffect(() => {
@@ -80,7 +85,7 @@ const Chat = ({ room }) => {
   return (
     <>
       <div className="chat_container">
-        <h1>Welcome to the {room.toUpperCase()}</h1>
+        <h1>Welcome to the {room?.toUpperCase()}</h1>
         {isLoading ? (
           <Loader />
         ) : (
