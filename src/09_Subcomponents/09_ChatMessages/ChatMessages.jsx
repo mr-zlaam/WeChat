@@ -1,14 +1,26 @@
-import {} from "react";
+import { CgTrash } from "react-icons/cg";
+
 import "./ChatMessages.scss";
-import MessageTimestamp from "../05_messagesTimeStamp/MessageTimeStamp";
-const ChatMessages = ({
-  scrollableDivRef,
-  messages,
-  currentUser,
-  Timestamp,
-  timeString,
-  comp_Theme,
-}) => {
+import { deleteDoc, doc } from "firebase/firestore";
+import { db } from "../../02_Firebase/firebase.config";
+import { useContext } from "react";
+import { ChatContext } from "../../00_Export";
+const ChatMessages = ({ scrollableDivRef, currentUser, comp_Theme }) => {
+  const { messages, setMessages } = useContext(ChatContext);
+  const handleDelete = async (id) => {
+    try {
+      const deleteDocs = doc(db, "messages", id);
+      const deleteMessages = messages.filter((item) => item.id !== id);
+      setMessages(deleteMessages);
+      await deleteDoc(deleteDocs);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleFilteredOut = (id) => {
+    const deleteMessages = messages.filter((item) => item.id !== id);
+    setMessages(deleteMessages);
+  };
   return (
     <>
       <div className="messages_container" ref={scrollableDivRef}>
@@ -23,19 +35,22 @@ const ChatMessages = ({
               {allmessages.user === currentUser ? (
                 <>
                   <span className="you">You</span>
-                  <span className="date">
-                    &nbsp;
-                    <MessageTimestamp timestamp={Timestamp} />
-                    &nbsp;{timeString}
+                  <span
+                    className="deleteContainer"
+                    onClick={() => handleDelete(allmessages.id)}
+                  >
+                    <CgTrash className="messageDeleter" />
                   </span>
                 </>
               ) : (
                 <>
                   <span className="username">{allmessages.user}</span>
-                  <span className="date">
-                    &nbsp;
-                    <MessageTimestamp timestamp={Timestamp} />
-                    &nbsp;{timeString}
+
+                  <span
+                    onClick={() => handleFilteredOut(allmessages.id)}
+                    className="deleteContainer"
+                  >
+                    <CgTrash className="messageDeleter" />
                   </span>
                 </>
               )}

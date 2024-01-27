@@ -17,7 +17,6 @@ import Setting from "../09_Subcomponents/03_Setting/Setting";
 import Loader from "../09_Subcomponents/04_Loaders/Loader";
 import Room from "../04_Pages/04_Navigate/Room";
 import Chat from "../04_Pages/05_Chat/Chat";
-import MessageTimestamp from "../09_Subcomponents/05_messagesTimeStamp/MessageTimeStamp";
 import Checkbox from "../09_Subcomponents/07_CheckBox/CheckBox";
 import useLoading from "../08_Hooks/ueLoading";
 import { useCompTheme } from "../08_Hooks/useCompTheme";
@@ -33,7 +32,6 @@ export {
   useCompTheme,
   useLoading,
   Checkbox,
-  MessageTimestamp,
   Chat,
   Loader,
   Setting,

@@ -1,12 +1,10 @@
 import { useContext, useEffect } from "react";
-import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
 import "./Theme.scss";
 import { ChatContext } from "../../00_Export";
-import useThemeClass from "../../08_Hooks/useTheme_Class";
 
 const Theme = () => {
-  const { isDarkMode, setIsDarkMode } = useContext(ChatContext);
-  const mode = useThemeClass(isDarkMode);
+  const { isDarkMode, setIsDarkMode, setIsSettingModalOpen } =
+    useContext(ChatContext);
   useEffect(() => {
     const storedDarkMode = localStorage.getItem("isDarkMode");
     setIsDarkMode(storedDarkMode === "true");
@@ -16,16 +14,17 @@ const Theme = () => {
     const selectedValue = event.target.value;
     if (selectedValue === "light") {
       setIsDarkMode(false);
+      setIsSettingModalOpen(false);
       localStorage.setItem("isDarkMode", false);
     } else if (selectedValue === "dark") {
       setIsDarkMode(true);
+      setIsSettingModalOpen(false);
       localStorage.setItem("isDarkMode", true);
     }
   };
   let select_class = isDarkMode
     ? "bg_light black_color"
     : "bg_dark white_color";
-  let opt_class = isDarkMode ? "black_bg " : "white_bg ";
   return (
     <>
       <select

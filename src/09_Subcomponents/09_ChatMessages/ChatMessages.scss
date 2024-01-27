@@ -30,6 +30,9 @@
       @include username_you();
       left: 2rem;
     }
+    .deleteContainer {
+      cursor: pointer;
+    }
     .you {
       @include username_you();
       right: 2rem;

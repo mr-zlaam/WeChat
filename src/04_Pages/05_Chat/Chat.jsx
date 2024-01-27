@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef } from "react";
 import "./Chat.scss";
 import {
   Timestamp,
@@ -26,9 +26,8 @@ const Chat = () => {
   const { isLoading, startLoading, stopLoading } = useLoading();
   const scrollableDivRef = useRef(null);
 
-  const [newMessage, setNewMessage] = useState("");
-  const [messages, setMessages] = useState([]);
-  const { isDarkMode, room } = useContext(ChatContext);
+  const { isDarkMode, room, newMessage, messages, setMessages, setNewMessage } =
+    useContext(ChatContext);
   const comp_Theme = useCompTheme(isDarkMode);
   const errorMessage = useNotification();
   //? Reference to add doc
@@ -79,9 +78,6 @@ const Chat = () => {
     }
   }, [messages]);
   // Time
-  const timeNow = new Date();
-  const options = { hour12: true, hour: "numeric", minute: "2-digit" };
-  const timeString = timeNow.toLocaleTimeString("default", options);
 
   return (
     <>
@@ -92,10 +88,8 @@ const Chat = () => {
         ) : (
           <ChatMessages
             scrollableDivRef={scrollableDivRef}
-            messages={messages}
             currentUser={currentUser}
             Timestamp={Timestamp}
-            timeString={timeString}
             comp_Theme={comp_Theme}
           />
         )}

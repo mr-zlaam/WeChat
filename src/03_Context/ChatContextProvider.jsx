@@ -6,9 +6,14 @@ export const ChatContextProvider = ({ children }) => {
   const [room, setRoom] = useState(null);
   const [inputVal, setInputVal] = useState("");
   const [isSettingModalOpen, setIsSettingModalOpen] = useState(false);
+  const [newMessage, setNewMessage] = useState("");
+  const [messages, setMessages] = useState([]);
+
   return (
     <ChatContext.Provider
       value={{
+        messages,
+        setMessages,
         isSettingModalOpen,
         setIsSettingModalOpen,
         isDarkMode,
@@ -17,6 +22,8 @@ export const ChatContextProvider = ({ children }) => {
         setRoom,
         inputVal,
         setInputVal,
+        newMessage,
+        setNewMessage,
       }}
     >
       {children}
