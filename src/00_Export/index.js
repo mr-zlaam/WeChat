@@ -8,7 +8,6 @@ import { useBtn_Class } from "../08_Hooks/useBtn_Class";
 import useThemeClass from "../08_Hooks/useTheme_Class";
 import Auth_Register from "../04_Pages/02_Authentication/01_Auth_Register";
 import { useNotification } from "../08_Hooks/useNotification";
-import Home from "../04_Pages/03_Home/Home";
 import Protected from "../05_Components/ProtectedRoutes/Protected";
 import Navbar from "../05_Components/01_Navbar/Navbar";
 import Create_Room from "../09_Subcomponents/01_Create_Room/Create_Room";
@@ -45,7 +44,6 @@ export {
   useThemeClass,
   Auth_Register,
   useNotification,
-  Home,
   Protected,
   Navbar,
   Create_Room,

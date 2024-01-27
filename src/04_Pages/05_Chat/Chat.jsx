@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useContext, useEffect, useRef, useState } from "react";
 import "./Chat.scss";
 import {
@@ -85,7 +86,7 @@ const Chat = () => {
   return (
     <>
       <div className="chat_container">
-        <h1>Welcome to the {room?.toUpperCase()}</h1>
+        <h1>Its {room?.toUpperCase()}' Room</h1>
         {isLoading ? (
           <Loader />
         ) : (
