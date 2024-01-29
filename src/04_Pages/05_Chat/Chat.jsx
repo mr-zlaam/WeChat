@@ -56,6 +56,7 @@ const Chat = () => {
     if (!newMessage)
       return errorMessage.errorMessage("Wanna Send Empty message huh!");
     startLoading();
+    setNewMessage("");
     try {
       await addDoc(messageRef, {
         text: newMessage,
@@ -63,7 +64,6 @@ const Chat = () => {
         user: authUser.currentUser?.displayName,
         room,
       });
-      setNewMessage("");
       stopLoading();
     } catch (error) {
       errorMessage.errorMessage(
@@ -81,8 +81,8 @@ const Chat = () => {
 
   return (
     <>
+      <h1>Its {room?.toUpperCase()}'s Room</h1>
       <div className="chat_container">
-        <h1>Its {room?.toUpperCase()}'s Room</h1>
         {isLoading ? (
           <Loader />
         ) : (

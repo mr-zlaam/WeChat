@@ -1,13 +1,13 @@
 @import "../../07_Style_Variables/Variables/Fonts_And_Styles.scss";
 
 .chat_container {
-  height: calc(100vh - 113px);
+  height: calc(100vh - 155px);
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   flex-direction: column;
-  h1 {
-    text-align: center;
-    font-size: $font_md_5;
-  }
+}
+h1 {
+  text-align: center;
+  font-size: $font_md_5;
 }
