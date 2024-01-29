@@ -5,6 +5,7 @@ import {
   SettingModal,
   useBtn_Class,
   useNotification,
+  useThemeClass,
 } from "../../00_Export";
 import { useNavigate } from "react-router-dom";
 
@@ -14,6 +15,7 @@ const Room = () => {
   const { isDarkMode, setRoom, inputVal, setInputVal } =
     useContext(ChatContext);
   const btn_class = useBtn_Class(isDarkMode);
+  const useTheme_Class = useThemeClass(isDarkMode);
   const roomInputRef = useRef(null);
   const handleEnterRoom = () => {
     if (inputVal.length === 0)
@@ -25,7 +27,7 @@ const Room = () => {
   return (
     <>
       <SettingModal />
-      <div className="room_card">
+      <div className={`room_card ${useTheme_Class}`}>
         <div className="room_input_controller">
           <label htmlFor="myroom">Enter the Room Name</label>
           <input
