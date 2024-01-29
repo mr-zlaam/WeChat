@@ -20,7 +20,7 @@ const Room = () => {
   const handleEnterRoom = () => {
     if (inputVal.length === 0)
       return notification.errorMessage("Pleaser enter the room name first!");
-    setRoom(roomInputRef.current.value);
+    setRoom(roomInputRef.current.value.toUpperCase());
     navigate(`/chat`);
   };
 
