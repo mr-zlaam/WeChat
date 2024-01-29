@@ -34,11 +34,11 @@ const ChatMessages = ({ scrollableDivRef, currentUser, comp_Theme }) => {
             >
               {allmessages.user === currentUser ? (
                 <>
-                  <span className="you">You</span>
                   <span
                     className="deleteContainer"
                     onClick={() => handleDelete(allmessages.id)}
                   >
+                    <span className="you">You</span>
                     <CgTrash className="messageDeleter" />
                   </span>
                 </>
