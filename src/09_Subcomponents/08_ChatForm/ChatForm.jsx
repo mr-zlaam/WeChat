@@ -9,7 +9,6 @@ const ChatForm = ({ handleSubmit, setNewMessage, newMessage, comp_Theme }) => {
           <input
             type="text"
             value={newMessage}
-            autoFocus
             placeholder="Message"
             onChange={(event) => {
               setNewMessage(event.target.value);

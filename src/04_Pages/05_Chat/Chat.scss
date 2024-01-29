@@ -1,7 +1,7 @@
 @import "../../07_Style_Variables/Variables/Fonts_And_Styles.scss";
 
 .chat_container {
-  height: calc(100vh - 150px);
+  height: calc(100vh - 20vh);
   position: relative;
   display: flex;
   justify-content: flex-end;
