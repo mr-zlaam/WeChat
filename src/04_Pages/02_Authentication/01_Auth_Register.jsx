@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 import { useNotification } from "../../08_Hooks/useNotification";
 import { authUser, googleProvider } from "../../02_Firebase/firebase.config";
-import { sendSignInLinkToEmail, signInWithPopup } from "firebase/auth";
+import { signInWithPopup } from "firebase/auth";
 import {
   getAuth,
   isSignInWithEmailLink,
@@ -45,16 +45,11 @@ const Auth_Register = () => {
       if (!email) return errorMessage("Email is Required");
       if (!email.includes("@")) return errorMessage("Email must be valid!");
 
-      await sendSignInLinkToEmail(authUser, email, {
-        url: "https://wechat-io.netlify.app/",
-        handleCodeInApp: true,
-      });
-
-      cookie.set("emailForSignIn", email);
-      setInput({ firstName: "", email: "", lastName: "" });
-      successMessage(
-        "Sign-in link sent to your email. Please check your inbox."
+      errorMessage(
+        "We are facing some issues with email verfication. We recommend to login with google."
       );
+      setInput({ firstName: "", email: "", lastName: "" });
+      return;
     } catch (error) {
       console.error(error);
     }

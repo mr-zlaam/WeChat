@@ -3,8 +3,12 @@ import "./SettingModal.scss";
 import { ChatContext, useThemeClass } from "../../00_Export";
 import Theme from "../../05_Components/Theme/Theme";
 const SettingModal = () => {
-  const { isSettingModalOpen, isDarkMode } = useContext(ChatContext);
+  const { isSettingModalOpen, setIsSettingModalOpen, isDarkMode } =
+    useContext(ChatContext);
   const modal_bg = useThemeClass(isDarkMode);
+  const handleSettingClose = () => {
+    setIsSettingModalOpen(false);
+  };
   return (
     <>
       <div
@@ -21,6 +25,9 @@ const SettingModal = () => {
           </p>
         </div>
       </div>
+      {isSettingModalOpen && (
+        <div onClick={handleSettingClose} className="setting_closer" />
+      )}
     </>
   );
 };

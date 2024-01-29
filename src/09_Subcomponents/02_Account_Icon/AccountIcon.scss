@@ -1,8 +1,15 @@
 @import "../../07_Style_Variables/Variables/Fonts_And_Styles.scss";
 
 @mixin mobile {
-  @media screen and (max-width: 404px) {
+  @media screen and (max-width: 454px) {
     flex-direction: column;
+    right: 2rem;
+    width: 300px;
+  }
+  @media screen and (max-width: 348px) {
+    flex-direction: column;
+    right: 1rem;
+    width: 250px;
   }
 }
 .account_icon_main {
@@ -11,11 +18,13 @@
     font-size: 3rem;
   }
   .account_tooltip_modal {
+    @include mobile;
     position: absolute;
     right: 5rem;
     top: 2rem;
     transform: scale(0);
     font-weight: bold;
+    z-index: 4;
     box-shadow: 2px 2px 4px #888888;
     transition: all 0.3s ease;
   }

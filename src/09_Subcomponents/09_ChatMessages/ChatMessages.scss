@@ -22,9 +22,8 @@
 .messages_container {
   overflow: auto;
   .messages {
-    display: flex;
+    background: red;
     margin: 1rem;
-    position: relative;
     padding: 2rem 0;
     .username {
       @include username_you();

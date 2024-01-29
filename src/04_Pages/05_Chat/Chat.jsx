@@ -82,7 +82,7 @@ const Chat = () => {
   return (
     <>
       <div className="chat_container">
-        <h1>Its {room?.toUpperCase()}' Room</h1>
+        <h1>Its {room?.toUpperCase()}'s Room</h1>
         {isLoading ? (
           <Loader />
         ) : (

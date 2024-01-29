@@ -2,8 +2,7 @@
 
 @mixin setting_modal {
   position: absolute;
-  position: absolute;
-  right: 3rem;
+  right: 0;
   top: 2rem;
   font-weight: bold;
   box-shadow: 2px 2px 4px #888888;
@@ -11,6 +10,10 @@
   transition: transform 0.1s linear;
   overflow: hidden;
   border-radius: 20px;
+  width: 94%;
+
+  z-index: 4;
+  margin: 0 1rem;
   & > div {
     display: flex;
     justify-content: space-around;
@@ -26,9 +29,18 @@
 
 .setting_modal_invisible {
   @include setting_modal();
-  transform: scale(0);
+  transform: translateY(-150%);
 }
 .setting_modal_visible {
   @include setting_modal();
-  transform: scale(1);
+  transform: translateY(0);
+}
+.setting_closer::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #00000065;
 }

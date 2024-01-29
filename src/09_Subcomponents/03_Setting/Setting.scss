@@ -4,7 +4,7 @@
   margin: 0 1rem;
   position: relative;
   cursor: pointer;
-  z-index: 900;
+  z-index: 2;
   .create_setting_icon {
     animation: rotate4 2s linear infinite;
     font-size: 3rem;
@@ -13,12 +13,13 @@
     position: absolute;
     top: 4.5rem;
     text-align: center;
-    left: 0rem;
+    right: 0rem;
     transform: scale(0);
     font-size: 0.7rem;
     transition: transform 0.3s ease;
     user-select: none;
     font-weight: bold;
+    width: 100%;
   }
   &:hover {
     .tooltip_setting {
