@@ -4,9 +4,10 @@ import "./ChatMessages.scss";
 import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../02_Firebase/firebase.config";
 import { useContext } from "react";
-import { ChatContext } from "../../00_Export";
+import { ChatContext, useThemeClass } from "../../00_Export";
 const ChatMessages = ({ scrollableDivRef, currentUser, comp_Theme }) => {
-  const { messages, setMessages } = useContext(ChatContext);
+  const { messages, setMessages, isDarkMode } = useContext(ChatContext);
+  const useTheme = useThemeClass(isDarkMode);
   const handleDelete = async (id) => {
     try {
       const deleteDocs = doc(db, "messages", id);
@@ -23,7 +24,7 @@ const ChatMessages = ({ scrollableDivRef, currentUser, comp_Theme }) => {
   };
   return (
     <>
-      <div className="messages_container" ref={scrollableDivRef}>
+      <div className={`messages_container ${useTheme}`} ref={scrollableDivRef}>
         {messages.map((allmessages) => {
           return (
             <div
