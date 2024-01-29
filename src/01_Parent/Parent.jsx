@@ -7,10 +7,11 @@ const Parent = () => {
   const location = useLocation();
   const { isDarkMode } = useContext(ChatContext);
   const themeMode = useThemeClass(isDarkMode);
-  const newLocation = location.pathname === "/login";
+  const navLocation = location.pathname === "/login";
+  const chatLocation = location.pathname === "/chat";
   return (
     <div className={`parent ${themeMode}`}>
-      {newLocation ? null : <Navbar />}
+      {navLocation || chatLocation ? null : <Navbar />}
       <Routers />
     </div>
   );

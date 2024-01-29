@@ -24,6 +24,7 @@
   .messages {
     margin: 1rem;
     padding: 2rem 0;
+    position: relative;
     .username {
       @include username_you();
       left: 2rem;

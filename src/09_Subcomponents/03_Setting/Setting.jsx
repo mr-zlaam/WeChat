@@ -6,16 +6,13 @@ import { ChatContext } from "../../00_Export";
 const Setting = () => {
   const { setIsSettingModalOpen } = useContext(ChatContext);
   const handleSettingModalOpen = () => {
-    setIsSettingModalOpen((prev) => !prev);
+    setIsSettingModalOpen(true);
   };
 
   return (
     <>
-      <div className="setting">
-        <IoMdSettings
-          className="create_setting_icon"
-          onClick={handleSettingModalOpen}
-        />
+      <div onClick={handleSettingModalOpen} className="setting">
+        <IoMdSettings className="create_setting_icon" />
         <span className="tooltip_setting">Setting</span>
       </div>
     </>

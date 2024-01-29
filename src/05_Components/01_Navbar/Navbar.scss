@@ -1,6 +1,9 @@
 @import "../../07_Style_Variables/Variables/Fonts_And_Styles.scss";
 
 .header_container {
+  position: sticky;
+  top: 0;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
