@@ -19,7 +19,7 @@ const Routers = () => {
   const data = useData();
   // Redirect to home if user is already logged in.
   useEffect(() => {
-    if (!data?.user_details) navigate("/login");
+    if (!data?.user_details) return navigate("/login");
 
     if (data?.user_details || data?.email_signin) {
       if (homeLocation) return navigate("/");
