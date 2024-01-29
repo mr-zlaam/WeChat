@@ -1,11 +1,5 @@
 @import "../../07_Style_Variables/Variables/Fonts_And_Styles.scss";
-@mixin mobile {
-  @media screen and (max-width: 760px) {
-    height: 95vh;
-  }
-}
 .chat_container {
-  @include mobile;
   height: 100vh;
   position: relative;
   display: flex;

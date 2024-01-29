@@ -21,6 +21,8 @@
 
 .messages_container {
   overflow: auto;
+  backdrop-filter: blur(4px);
+  user-select: none;
   .messages {
     margin: 1rem;
     padding: 2rem 0;
