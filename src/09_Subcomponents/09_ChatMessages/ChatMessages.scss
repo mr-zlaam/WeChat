@@ -2,7 +2,7 @@
 @mixin username_you {
   position: absolute;
   font-size: $font_sm_1;
-  top: 0;
+  top: 0.5rem;
 }
 @mixin mymessages {
   padding-top: 1rem;

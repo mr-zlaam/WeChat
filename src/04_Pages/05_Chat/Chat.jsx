@@ -19,6 +19,7 @@ import {
   useCompTheme,
   useLoading,
   useNotification,
+  useThemeClass,
 } from "../../00_Export";
 
 const Chat = () => {
@@ -29,6 +30,7 @@ const Chat = () => {
   const { isDarkMode, room, newMessage, messages, setMessages, setNewMessage } =
     useContext(ChatContext);
   const comp_Theme = useCompTheme(isDarkMode);
+  const useTheme = useThemeClass(isDarkMode);
   const errorMessage = useNotification();
   //? Reference to add doc
   const messageRef = collection(db, "messages");
@@ -82,7 +84,7 @@ const Chat = () => {
   return (
     <>
       <h1>Its {room?.toUpperCase()}'s Room</h1>
-      <div className="chat_container">
+      <div className={`chat_container ${useTheme}`}>
         {isLoading ? (
           <Loader />
         ) : (
